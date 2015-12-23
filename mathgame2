@@ -1,0 +1,42 @@
+#!/bin/bash
+#author: Heather Travar, Dec. 2015
+#Math game comparing numbers for kindergarten.
+#Two random numbers are generated. Child chooses the one that is larger or whether they are equal. The program tells them if they're right.
+#Whether they are right or wrong, discuss why.
+
+COUNTER=0 #to count rounds
+while [ $COUNTER -lt 26 ]; do
+
+ let COUNTER=COUNTER+1
+ #generate two random numbers
+ num1=$RANDOM
+ echo $num1
+ num2=$RANDOM 
+ echo $num2
+ 
+ echo
+ echo
+
+ echo "Which number is bigger? Enter the biggest number or 0 if they are equal."
+ read input
+
+ echo
+ echo
+
+ if [ $num1 -gt $num2 ] && [ $input -eq $num1 ]
+  then
+   xcowsay CORRECT
+ elif [ $num1 -lt $num2 ] && [ $input -eq $num2 ]
+  then
+   figlet CORRECT|lolcat
+ elif [ $num1 -eq $num2 ] && $input -eq "0" ]
+  then
+   cowsay CORRECT|lolcat
+ else
+   echo "OOPS."
+fi
+
+echo
+echo
+
+done
